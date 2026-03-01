@@ -70,9 +70,15 @@ label {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.draw-button {
-  width: 100%;
+.button-group {
+  display: flex;
+  gap: 1rem;
   max-width: 500px;
+  margin: 0 auto;
+}
+
+.draw-button {
+  flex: 1;
   padding: 1rem 2rem;
   background-color: #6366f1;
   color: white;
@@ -82,7 +88,6 @@ label {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  margin: 0 auto 2rem;
 }
 
 .draw-button:hover {
@@ -91,6 +96,28 @@ label {
 }
 
 .draw-button:active {
+  transform: translateY(0);
+}
+
+.history-button {
+  flex: 1;
+  padding: 1rem 2rem;
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.history-button:hover {
+  background-color: #7c3aed;
+  transform: translateY(-2px);
+}
+
+.history-button:active {
   transform: translateY(0);
 }
 
@@ -104,8 +131,6 @@ label {
   border: 2px solid #e5e7eb;
   animation: fadeIn 0.5s ease-in;
   box-sizing: border-box;
-  display: block;
-  min-height: 200px;
 }
 
 @keyframes fadeIn {
@@ -125,37 +150,14 @@ label {
   color: #10b981;
   text-align: center;
   padding: 1rem;
-  background: #fef3c7;
+  background-color: white;
   border-radius: 10px;
   border: 2px solid #10b981;
   margin-bottom: 1.5rem;
-  line-height: 1.6;
+  line-height: 1.5;
   display: inline-block;
   width: 100%;
   box-sizing: border-box;
-  animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes popIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
 }
 
 .clear-button {
@@ -173,4 +175,133 @@ label {
 
 .clear-button:hover {
   background-color: #dc2626;
+}
+
+.history-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.history-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.history-clear-button {
+  padding: 0.5rem 1rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.history-clear-button:hover {
+  background-color: #dc2626;
+}
+
+.history-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.history-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s;
+}
+
+.history-item:hover {
+  background-color: #f9fafb;
+}
+
+.history-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.history-item-name {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.history-item-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.history-item-time {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.history-delete-button {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+.history-delete-button:hover {
+  color: #dc2626;
+}
+
+.history-reselect-button {
+  padding: 0.5rem 0.75rem;
+  background-color: #e5e7eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.history-reselect-button:hover {
+  background-color: #d1d5db;
+}
+
+.no-history {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1rem;
+  padding: 2rem;
 }
